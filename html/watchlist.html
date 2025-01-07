@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch List - MovieMeter</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/jquery.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <script src="../js/bypass.js"></script>
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="../img/logo.png" alt="MovieMeter Logo" class="logo">
+        <div class="nav-links">
+            <a href="../html/homepage.html">Home</a>
+            <a href="../html/watchlist.html">Watch List</a>
+            <a href="../html/favorites.html">Favorites</a>
+        </div>
+
+        <div class="search-container">
+            <div class="search-group">
+                <select id="search-context">
+                    <option value="all">All Movies</option>
+                    <option value="recent">Recent Movies</option>
+                    <option value="top_rated">Top Rated</option>
+                    <option value="watchlist">Watch List</option>
+                    <option value="favorites">Favorites</option>
+                </select>
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search by keyword, genre, or actor">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </div>
+        <button class="sign-out-button" onclick="window.location.href='../php/signout.php'">Sign Out</button>
+    </div>
+    <div class="movies-container">
+        <h2>Your Watchlist</h2>
+        <p class="section-description">Keep track of must-watch movies and plan your next viewing experience.</p>
+        <div class="section-search-wrapper">
+            <input type="text" class="search-input" placeholder="Search in your watchlist...">
+        </div>
+        <div id="watchlist-movies" class="movie-grid"></div>
+    </div>
+    <script type="text/javascript" src="../js/toast-js"></script>
+    <script src="../js/watchlist.js"></script>
+</body>
+
+</html>

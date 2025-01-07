@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - MovieMeter</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/jquery.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <script src="../js/bypass.js"></script>
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body id="details-body" style="min-height: 100vh; margin: 0;">
+    <div id="background-blur"></div>
+    <div class="navbar">
+        <img src="../img/logo.png" alt="MovieMeter Logo" class="logo">
+        <div class="nav-links">
+            <a href="../html/homepage.html">Home</a>
+            <a href="../html/watchlist.html">Watch List</a>
+            <a href="../html/favorites.html">Favorites</a>
+        </div>
+
+        <div class="search-container">
+            <div class="search-group">
+                <select id="search-context">
+                    <option value="all">All Movies</option>
+                    <option value="recent">Recent Movies</option>
+                    <option value="top_rated">Top Rated</option>
+                    <option value="watchlist">Watch List</option>
+                    <option value="favorites">Favorites</option>
+                </select>
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search by keyword, genre, or actor">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </div>
+        <button class="sign-out-button" onclick="window.location.href='../php/signout.php'">Sign Out</button>
+    </div>
+    <div class="movies-container" id="movie-details">
+        <div class="backdrop-container">
+            <img id="movie-backdrop" src="" alt="Backdrop Image">
+            <img id="movie-poster" src="" alt="Movie Poster">
+            <div class="action-buttons"
+                style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 10px;">
+                <button id="rate-movie-button" class="action-button"
+                    style="background-color: #F2C14E; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: black; font-size: 38px; padding-bottom: 7px;">&#9734;</span>
+                    <span class="action-text">Rate</span>
+                </button>
+                <button id="add-to-watchlist-button" class="action-button"
+                    style="background-color: #F2C14E; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <img src="../img/add-w.png" alt="Add to Watch List">
+                    <span class="action-text">Add to Watch List</span>
+                </button>
+                <button id="remove-from-watchlist-button" class="action-button"
+                    style="background-color: #F2C14E; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; display: none;">
+                    <img src="../img/remove-w.png" alt="Remove from Watch List">
+                    <span class="action-text">Remove from Watch List</span>
+                </button>
+                <button id="add-to-favorites-button" class="action-button"
+                    style="background-color: #F2C14E; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <img src="../img/add-f.png" alt="Add to Favorite List">
+                    <span class="action-text">Add to Favorites</span>
+                </button>
+                <button id="remove-from-favorites-button" class="action-button"
+                    style="background-color: #F2C14E; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; display: none;">
+                    <img src="../img/remove-f.png" alt="Remove from Favorite List">
+                    <span class="action-text">Remove from Favorites</span>
+                </button>
+            </div>
+        </div>
+        <div class="movie-info">
+            <h2 id="movie-title"></h2>
+
+            <section>
+                <h3>Overview</h3>
+                <p id="movie-overview"></p>
+                <p id="movie-tagline"></p>
+                <p id="movie-director"></p>
+            </section>
+
+            <section>
+                <h3>Details</h3>
+                <p id="movie-release-date"></p>
+                <p id="movie-runtime"></p>
+                <p id="movie-genres"></p>
+                <p id="movie-keywords"></p>
+                <p id="movie-language"></p>
+            </section>
+
+            <section>
+                <h3>Ratings</h3>
+                <p id="movie-rating"></p>
+                <p id="movie-vote-count"></p>
+                <p id="movie-popularity"></p>
+            </section>
+
+            <section>
+                <h3>Production</h3>
+                <p id="movie-companies"></p>
+                <p id="movie-production-countries"></p>
+                <p id="movie-budget"></p>
+                <p id="movie-revenue"></p>
+                <p id="movie-collection"></p>
+            </section>
+
+            <section>
+                <h3>Top Cast</h3>
+                <div id="movie-cast"></div>
+            </section>
+
+            <section>
+                <h3>Trailers</h3>
+                <div id="movie-videos" class="video-list"></div>
+            </section>
+            <section>
+                <h3>Similar Movies</h3>
+                <div id="similar-movies" class="movie-list"></div>
+            </section>
+        </div>
+    </div>
+    <div id="rate-movie-modal" class="modal" style="top: 72px;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rate Movie</h2>
+            <div id="star-rating" class="star-rating">
+                <span data-value="10" class="star">&#9733;<span class="action-text">10 - Masterpiece</span></span>
+                <span data-value="9" class="star">&#9733;<span class="action-text">9 - Excellent</span></span>
+                <span data-value="8" class="star">&#9733;<span class="action-text">8 - Very Good</span></span>
+                <span data-value="7" class="star">&#9733;<span class="action-text">7 - Good</span></span>
+                <span data-value="6" class="star">&#9733;<span class="action-text">6 - Above Average</span></span>
+                <span data-value="5" class="star">&#9733;<span class="action-text">5 - Average</span></span>
+                <span data-value="4" class="star">&#9733;<span class="action-text">4 - Below Average</span></span>
+                <span data-value="3" class="star">&#9733;<span class="action-text">3 - Bad</span></span>
+                <span data-value="2" class="star">&#9733;<span class="action-text">2 - Poor</span></span>
+                <span data-value="1" class="star">&#9733;<span class="action-text">1 - Awful</span></span>
+            </div>
+            <button id="submit-rating-button">Submit</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/toast-js"></script>
+    <script src="../js/movie-details.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - MovieMeter</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/toast.css">
+</head>
+
+<body>
+    <div class="signin-container">
+        <img src="../img/logo.png" alt="MovieMeter Logo" class="logo">
+        <h2 id="form-title">Sign In</h2>
+        <form id="signin-form" action="../php/auth.php" method="POST">
+            <input type="hidden" id="action" name="action" value="Check Email">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <div class="password-container" id="password-container">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+            </div>
+            <input type="submit" value="Sign In">
+        </form>
+        <p>Don't Have an Account? <a href="#" class="toggle-link">Sign Up</a></p>
+    </div>
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signup-form-modal" action="../php/auth.php" method="POST">
+                <input type="hidden" name="action" value="Sign Up">
+                <input type="email" name="email" placeholder="Email" required>
+                <div class="password-container">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <div class="password-container">
+                    <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-meter"></div>
+                </div>
+                <div class="password-requirements">
+                    <div class="requirement" data-requirement="length">At least 8 characters</div>
+                    <div class="requirement" data-requirement="uppercase">One uppercase letter</div>
+                    <div class="requirement" data-requirement="lowercase">One lowercase letter</div>
+                    <div class="requirement" data-requirement="number">One number</div>
+                    <div class="requirement" data-requirement="special">One special character</div>
+                </div>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/toast-js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+
+</html>

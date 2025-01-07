@@ -1,0 +1,52 @@
+# MovieMeter
+
+A dynamic web application for discovering, tracking and rating movies. Built with JavaScript, PHP, and the TMDB API.
+
+## Features
+
+- **Movie Discovery**: Browse recent releases and top-rated movies with detailed information
+- **Search Functionality**: Search movies by title, keyword, genre, or actor
+- **Personal Lists**: 
+  - Add movies to your watchlist
+  - Save your favorite movies
+  - Rate movies on a 10-star scale
+- **Movie Details**: 
+  - View comprehensive movie information including cast, crew, budget, and revenue
+  - Watch trailers and video content
+  - See similar movie recommendations
+  - View production details and statistics
+- **User Authentication**: Secure sign-up and sign-in functionality
+- **Responsive UI**: Modern, user-friendly interface with toast notifications
+
+## Technical Features
+
+- Real-time search with autocomplete
+- Guest session management for ratings
+- Password strength validation
+- Toast notifications for user feedback
+- Debounced search functionality
+- Responsive design for all screen sizes
+
+## Built With
+
+- Frontend: HTML, CSS, JavaScript, jQuery
+- Backend: PHP
+- Database: MySQL
+- APIs: TMDB (The Movie Database)
+- Libraries: Toastify for notifications
+
+## Getting Started
+
+1. Clone the repository
+2. Set up a local PHP server 
+3. Create a MySQL database named "movies_db"
+4. Configure database connection in PHP files
+5. Open 
+
+index.html
+
+ in your browser
+
+## License
+
+This project uses the TMDB API but is not endorsed or certified by TMDB.
