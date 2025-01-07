@@ -41,11 +41,7 @@ A dynamic web application for discovering, tracking and rating movies. Built wit
 2. Set up a local PHP server 
 3. Create a MySQL database named "movies_db"
 4. Configure database connection in PHP files
-5. Open 
-
-index.html
-
- in your browser
+5. Open index.html in your browser
 
 ## License
 
